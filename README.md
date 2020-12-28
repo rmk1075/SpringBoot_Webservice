@@ -4,6 +4,8 @@
 
 <details>
 
+<summary>세부내용</summary>
+
 - SpringBoot_Webservice 프로젝트 생성
 
   - localhost:8080/hello
@@ -14,9 +16,11 @@
 
 </details>
 
-# 2. SpringBoot & JPA로 간단 API 만들기
+## 2. SpringBoot & JPA로 간단 API 만들기
 
 <details>
+
+<summary>세부내용</summary>
 
 - Entity Class
 
