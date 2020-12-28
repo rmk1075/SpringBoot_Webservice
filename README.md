@@ -2,6 +2,8 @@
 
 ## 1. SpringBoot & Gradle & Github 프로젝트 생성하기
 
+<details>
+
 - SpringBoot_Webservice 프로젝트 생성
 
   - localhost:8080/hello
@@ -10,7 +12,11 @@
 
   - <https://github.com/rmk1075/SpringBoot_Webservice>
 
+</details>
+
 # 2. SpringBoot & JPA로 간단 API 만들기
+
+<details>
 
 - Entity Class
 
@@ -119,3 +125,5 @@
   - @EnableJpaAuditing
   
     - JPA Auditing 활성화
+
+</details>
