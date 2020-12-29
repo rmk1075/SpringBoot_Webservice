@@ -201,3 +201,25 @@
 - @Query
 
 </details>
+
+## 4. AWS EC2 & RDS 구축하기
+
+<details>
+
+<summary>세부내용</summary>
+
+- AWS EC2 생성
+
+  - SSH, Http, Https 연결
+  
+  - PuTTY로 SSH 연결 (ref: <https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/UserGuide/putty.html>)
+
+- AWS RDS 설정
+
+  - Maria DB 설정
+
+  - MySql Workbench DB Connection 설정
+  
+  - EC2 server에 mysql 설치
+
+</details>
