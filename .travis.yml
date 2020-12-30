@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - openjdk8
+  - openjdk11
 
 # only master branch에 push 되었을때 수행하도록 한다.
 branches:
