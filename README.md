@@ -223,3 +223,49 @@
   - EC2 server에 mysql 설치
 
 </details>
+
+## 5. EC2에 배포하기
+
+<details>
+
+<summary>세부내용</summary>
+
+- Java 11 설치
+
+  - local에서 java 11 사용하기 때문에 버전 맞춤
+
+  - sudo amazon-linux-extras install java-openjdk11
+  
+  - java 11.0.7 버전 설치
+  
+- Git 설치
+
+  - sudo yum install git
+  
+  - git clone시 git index에 잡혀있는 기본 permission에 따라서 clone 됨
+  
+    - git ls-tree HEAD를 통해서 확인 가능
+      
+    - git update-index --chmod=+x {filename}을 통해서 변경 가능 
+
+    - git clone & pull, test 실행
+    
+- deploy.sh 생성
+
+  - build 디렉토리에 jar 파일과 nohup.log 생성
+ 
+※ java11 사용시 에러 발생
+
+  - java11에는 jaxb를 미포함하고 있기 떄문에 에러 발생
+  
+  - 별도 dependency 통해서 사용 가능 
+
+  - compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+  
+- spring boot project 빌드
+
+  - .jar 빌드
+  
+  - nohup.log 생성
+
+</details>
