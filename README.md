@@ -269,3 +269,17 @@
   - nohup.log 생성
 
 </details>
+
+## 6. TravisCI & AWS CodeDeploy로 배포 자동화 구축하기
+
+<details>
+
+<summary>세부내용</summary>
+
+- Travic CI 설정
+
+  - github 계정 연동
+  
+  - .travis.yml 설정
+
+</details>
