@@ -23,3 +23,5 @@ notifications:
   email:
     recipients:
       - rmk1075@gmail.com
+
+# travis CI test
