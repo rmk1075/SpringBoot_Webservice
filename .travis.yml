@@ -36,5 +36,5 @@ deploy:
     acl: public_read
     wait-until-deployed: true
     on:
-      repo: jrmk1075/SpringBoot_Webservice #Github 주소
+      repo: rmk1075/SpringBoot_Webservice #Github 주소
       branch: master
