@@ -1,4 +1,4 @@
-# 스프링부트로 웹 서비스 구축하기
+# 스프링부트로 웹 서비스 구축하기 [![Build Status](https://travis-ci.org/rmk1075/SpringBoot_Webservice.svg?branch=master)](https://travis-ci.org/rmk1075/SpringBoot_Webservice)
 
 ## 1. SpringBoot & Gradle & Github 프로젝트 생성하기
 
@@ -44,8 +44,8 @@
   
     - PK의 생성 규칙
 
-
-    ※ SpringBoot 2.0에서는 옵션을 추가해야함 (ref: <https://jojoldu.tistory.com/295>)
+    > ※ SpringBoot 2.0에서는 옵션을 추가해야함 (ref: <https://jojoldu.tistory.com/295>)
+    
     - 기본값은 AUTO (MySQL의 auto_increment 되는 정수형 값)
   
   - @Column
@@ -110,9 +110,8 @@
   
   - constructor: 가장 권장하는 방식 -> 예제코드에서 @AllArgsConstructor로 생성
   
-※ h2 console 실행 중 "mem:testdb" not found 에러 발생
-
-  application.yml에 'spring:datasource:url: jdbc:h2:mem:testdb' 추가해서 해결
+> ※ h2 console 실행 중 "mem:testdb" not found 에러 발생
+> - application.yml에 'spring:datasource:url: jdbc:h2:mem:testdb' 추가해서 해결
 
 - JPA Auditing
 
@@ -254,13 +253,10 @@
 
   - build 디렉토리에 jar 파일과 nohup.log 생성
  
-※ java11 사용시 에러 발생
-
-  - java11에는 jaxb를 미포함하고 있기 떄문에 에러 발생
-  
-  - 별도 dependency 통해서 사용 가능 
-
-  - compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+> ※ java11 사용시 에러 발생
+> - java11에는 jaxb를 미포함하고 있기 떄문에 에러 발생
+> - 별도 dependency 통해서 사용 가능 
+> - compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
   
 - spring boot project 빌드
 
@@ -281,5 +277,40 @@
   - github 계정 연동
   
   - .travis.yml 설정
+
+> ※ gradlew 권한 에러
+> - git update-index --chmod=+x gradlew
+  
+- AWS Code Delpoy 연동
+
+  - AWS CodeDeploy Agent 생성
+
+  > ※ ruby error 발생
+  > - /usr/bin/env: ruby: No such file or directory
+  > - sudo yum install ruby
+
+  - codedeploy-startup.sh 생성
+  
+    - /etc/init.d/ - 부팅 시 자동실행
+    
+  > ※ Travis CI에서 S3로 배포 실패
+  > - 접근권한 설정
+  > - 새 ACL(액세스 제어 목록)을 통해 부여된 버킷 및 객체에 대한 퍼블릭 액세스 차단 -> 해제
+
+- Travis CI & S3 & CodeDeploy 연동
+
+  - AWS CodeDeploy 생성
+  
+    - appspec.yml로 설정
+    
+    - .travis.yml -> codedeploy 설정
+    
+  - codeDeploy로 shell script 실행
+  
+    - delploy.sh 생성 (서버 shell)
+    
+    - execute-deploy.sh 생성 (프로젝트 내부 shell)
+    
+    - appspec.yml에더 execute-deploy.sh 실행 -> deploy.sh 실행
 
 </details>
