@@ -314,3 +314,55 @@
     - appspec.yml에더 execute-deploy.sh 실행 -> deploy.sh 실행
 
 </details>
+
+## 7. Nginx를 활용한 무중단 배포 구축하기
+
+<details>
+
+<summary>세부내용</summary>
+
+- Nginx로 무중단 배포
+
+  - port: Nginx(80, 443), springboot1(8081), springboot2(8082)
+
+  - 사용자: 서비스 주소로 접속 (port: 80, 443)
+  
+  - Nginx: 사용자 request -> springboot1(8081)로 전달
+  
+    - reverse-proxy
+    
+    - reverse-proxy server는 요청을 전달하고 실제 요청에 대한 처리는 뒷단의 웹 서버들이 처리한다.
+  
+  - 배포: springboot2(8082)로 배포
+  
+  - 배포 종료 후 springboot2 확인
+  
+  - nginx reload를 통해서 8081 -> 8082로 변경
+  
+  - springboot1과 springboot2를 번갈아가면서 배포 및 서비스 하도록 한다.
+
+  ![ex_screenshot](./img/무중단_배포_전체구조.png)
+  
+  - /etc/nginx/nginx.conf 수정
+  
+    - proxy_pass http://localhost:8080;
+    
+    - proxy_set_header X-Real-IP $remote_addr;
+    
+    - proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    
+    - proxy_set_header Host $http_host;
+
+ - Environment: 프로젝트의 환경설정을 다룸
+ 
+ - service-url.inc 파일 생성
+ 
+ - nonstop 디렉터리 아래 - deploy.sh + switch.sh 생성
+ 
+   - deploy.sh: 배포 후 switch.sh 실행
+   
+   - switch.sh: 8081 <-> 8082 변경
+ 
+ - exectue-deploy.sh 변경 (travis -> nonstop)
+
+</details>
