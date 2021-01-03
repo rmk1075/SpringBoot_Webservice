@@ -366,3 +366,45 @@
  - exectue-deploy.sh 변경 (travis -> nonstop)
 
 </details>
+
+## 8. 운영 환경 설정
+
+<details>
+
+<summary>세부내용</summary>
+
+- 운영 DB 접속 정보 추가
+
+  - build.gradle 추가 - compile("org.mariadb.jdbc:mariadb-java-client")
+  
+  - real-application.yml 수정
+  
+    - real-db 설정으로 변경
+    
+  - application.yml 수정
+  
+    - set1, set2 설정 추가 (real-db 설정 추가)
+  
+  - spring boot version 차이로 yaml 문법 변경
+  
+  - profiles에서 더이상 다수의 문서 호출 불가
+  
+    - spring.profiles -> spring.config.activate.on-profile: set1
+    
+    - spring.profiles.include -> spring.profiles.group.set1: set1, real-db
+    
+      - group 지정 따로 하여서 묶어서 실행할 수 있도록 함
+      
+  - ref
+  
+    - https://spring.io/blog/2020/08/14/config-file-processing-in-spring-boot-2-4
+    
+    - https://medium.com/@kevin_park/springboot-2-4-0-%EB%B3%80%EA%B2%BD-%EB%82%B4%EC%9A%A9-ef452b860fb5
+    
+    - http://wonwoo.ml/index.php/post/category/web/spring-boot
+    
+    - https://luvstudy.tistory.com/130
+
+  > ※ real-application.yml 작성시 들여쓰기 주의
+
+</details>
